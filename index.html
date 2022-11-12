@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Vu Quang Huy's love letter</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background: #000;
+      }
+      canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .bg_heart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden
+      }
+
+      .heart {
+        position: absolute;
+        top: -50%;
+        -webkit-transform: rotate(-50deg);
+        -moz-transform: rotate(-50deg);
+        -m-transform: rotate(-50deg);
+        transform: rotate(-50deg)
+      }
+
+      .heart:before {
+        position: absolute;
+        top: -50%;
+        left: 0;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 100%;
+      }
+
+      .heart:after {
+        position: absolute;
+        top: 0;
+        right: -50%;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 100%;
+      }
+
+      @-webkit-keyframes love {
+        0%{top:110%}
+      }
+      @-moz-keyframes love {
+        0%{top:110%}
+      }
+      @-ms-keyframes love {
+        0%{top:110%}
+      }
+      @keyframes love {
+        0%{top:110%}
+      }
+      #curtain {
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+      }
+      .btn-primary {
+        background-color: #FF647F !important;
+        border-color: #FF92A5 !important;
+      }
+      .btn-secondary {
+        background-color: #FF92A5 !important;
+        border-color: #FF92A5 !important;
+      }
+      .text-primary {
+        color: #FF647F  !important;
+      }
+      .text-secondary {
+        color: #FF92A5 !important;
+      }
+      .border-primary {
+        border-color: #FF647F !important;
+      }
+      .custom-container {
+        height: initial;
+      }
+      #main-text {
+        color:#FF647F;
+        font-size: 32px;
+        text-transform: uppercase;
+        text-shadow: 0 0 5px rgba(255,100,127,0.5);
+        -webkit-text-stroke: 0.5px #FF647F;
+        font-weight: 700;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #FF647F, 0 0 30px #FF647F, 0 0 40px #FF647F, 0 0 50px #FF647F, 0 0 60px #FF647F;
+        }
+        to {
+          text-shadow: 0 0 5px #fff, 0 0 20px #FF92A5, 0 0 30px #FF92A5, 0 0 40px #FF92A5, 0 0 50px #FF92A5, 0 0 60px #FF92A5, 0 0 70px #FF92A5;
+        }
+      }
+      @media screen and (min-width: 600px)  {
+        .mobile-break { display: none; }
+        .custom-container {
+          height: 100%;
+        }
+        #main-text {
+          color:#FF647F;
+          font-size: 72px;
+          text-transform: uppercase;
+          text-shadow: 0 0 5px rgba(255,100,127,0.5);
+          -webkit-text-stroke: 1px #FF647F;
+          font-weight: 900;
+          -webkit-text-fill-color: transparent;
+          -webkit-animation: glow 1s ease-in-out infinite alternate;
+          -moz-animation: glow 1s ease-in-out infinite alternate;
+          animation: glow 1s ease-in-out infinite alternate;
+        }
+        @-webkit-keyframes glow {
+          from {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #FF647F, 0 0 30px #FF647F, 0 0 40px #FF647F, 0 0 50px #FF647F, 0 0 60px #FF647F;
+          }
+          to {
+            text-shadow: 0 0 5px #fff, 0 0 20px #FF92A5, 0 0 30px #FF92A5, 0 0 40px #FF92A5, 0 0 50px #FF92A5, 0 0 60px #FF92A5, 0 0 70px #FF92A5;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="curtain" class="container-fluid d-block">
+      <div id="content-container" class="row justify-content-center align-content-center h-100">
+        <div id="card-1" class="card border-primary mx-2" style="width: 30rem;">
+          <div class="card-header bg-transparent border-primary text-primary"><i class="far fa-envelope"></i> Thông báo</div>
+          <div class="card-body">
+            <h5 class="card-title text-black text-primary text-uppercase">Bạn có 1 thư mới</h5>
+            <h6 class="card-subtitle mb-2 text-muted text-secondary">Người gửi: Vũ Quang Huy</h6>
+            <h6 class="card-subtitle mb-2 text-muted text-secondary">Người nhận: Triệu Minh Bảo Ngọc</h6>
+            <p class="card-text text-secondary">Hãy cùng mở nó nha ?</p>
+            <div id="group-button-1" class="text-center">
+              <a href="#" id="yes-button-1" onclick="next('1')" class="btn btn-primary mb-2 mr-3">Tất nhiên là phải mở <i class="fas fa-heart"></i></a>
+              <br class="mobile-break">
+              <a href="#" id="no-button" class="btn btn-secondary mb-2">Hong mở đâu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main-content" class="container-fluid px-0 custom-container d-none" style="overflow: hidden;">
+      <div class="bg_heart"></div>
+      <canvas id="pinkboard"></canvas>
+      <div id="content-container-2" class="row justify-content-center align-content-center h-100">
+        <div id="card-5" class="card border-primary mx-3 d-none d-sm-block" style="width: 30rem; background-color: rgba(255, 255, 255, 0.9);">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="./img-love.jpg" class="card-img" alt="Ảnh của Huy và Ngọc nà">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6 class="card-title text-black text-primary">Chào em, sensei của anh, người anh muốn sẽ cùng đi trên suốt cuộc đời mình!</h6>
+                <p class="card-text text-primary">Anh từng nói với em rằng, cuộc sống không phải chỉ có màu hồng. Chúng ta bắt đầu nó không phải bằng 1 màu hồng mà là rất nhiều thử thách cách ta đối mặt với nó quyết định con đường ta sẽ đi cùng nhau sau này. Anh muốn mình phải thật mạnh mẽ để có thể quan tâm, yêu thương, trao cho em đủ đầy nhất tình cảm của mình.</p>
+                <p class="card-text"><small class="text-secondary">Ký tên: Chàng tiên ốc của em</small></p>
+                <a href="#" id="yes-button-1" onclick="next('5')" class="btn btn-primary mb-2 mr-3">Còn nữa nè <i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="card-5" class="card border-primary mx-3 d-block d-sm-none" style="width: 30rem; background-color: rgba(255, 255, 255, 0.9);">
+          <div class="card-body">
+            <h6 class="card-title text-black text-primary">Chào em, sensei của anh, người anh muốn sẽ cùng đi trên suốt cuộc đời mình!</h6>
+            <p class="card-text text-primary">Anh từng nói với em rằng, cuộc sống không phải chỉ có màu hồng. Chúng ta bắt đầu nó không phải bằng 1 màu hồng mà là rất nhiều thử thách cách ta đối mặt với nó quyết định con đường ta sẽ đi cùng nhau sau này. Anh muốn mình phải thật mạnh mẽ để có thể quan tâm, yêu thương, trao cho em đủ đầy nhất tình cảm của mình.</p>
+            <p class="card-text"><small class="text-secondary">Ký tên: Chàng tiên ốc của em</small></p>
+            <a href="#" id="yes-button-1" onclick="next('5')" class="btn btn-primary mb-2 mr-3">Còn nữa nè <i class="fas fa-heart"></i></a>
+          </div>
+          <img src="./img-love.jpg" class="card-img-bottom" alt="Ảnh của Huy và Ngọc nà">
+        </div>
+      </div>
+      <div id="main-text-container" class="row justify-content-center align-content-center h-100 d-none">
+        <p id="main-text">I love you, bae</p>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./script.js" type="text/javascript"></script>
+  </body>
+</html>
